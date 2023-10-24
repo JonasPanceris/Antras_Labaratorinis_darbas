@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButCountClick (View view){
-        if(this.spSelectionOptions.getSelectedItem().toString() == "Symbols") {
-
+        String selectedItem = this.spSelectionOptions.getSelectedItem().toString();
+        if(selectedItem.equalsIgnoreCase("Symbols")) {
             int result = TextCounter.countSymbols(this.edUserInput.getText().toString());
             log.i("CountResult", String.valueOf(result));
             this.tvMain.setText(String.valueOf(result));
